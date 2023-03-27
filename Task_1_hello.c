@@ -4,8 +4,8 @@
 int main(){
     char str[MAX];
     printf("Enter who you want to say hello to: ");
-    fgets(str, MAX, stdin);
-    printf("Hello, %s",str);
+    scanf("%s", str);
+    printf("Hello, %s", str);
     return 0;
 
 }
