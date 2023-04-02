@@ -9,8 +9,8 @@ int horizontal(double, double);
 
 int main() {
 
-  double x = -5;
-  double y = 5;
+  int x = -5;
+  int y = 5;
 
   printf("Введите значение x: ");
   scanf("%d",&x);
