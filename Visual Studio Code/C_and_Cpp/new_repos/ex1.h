@@ -13,32 +13,38 @@ public:
 
 class Shape2D : public Shape {
 private:
-
-  float area = 0; 
+  float area = 0;
   void virtual CalculateArea() = 0;
 
 public:
-  Shape2D() { CalculateArea(); } 
+  Shape2D() { CalculateArea(); }
 
   float GetArea() { return area; };
+  void SetArea(float a) {
+    if(a > 0){
+    area = a;
+    }
+  }
 
   bool operator>(const Shape2D &other) { return area > other.area; };
   bool operator<(const Shape2D &other) { return area < other.area; };
   bool operator==(const Shape2D &other) { return area == other.area; };
-
 };
-
 
 class Shape3D : public Shape {
 private:
-
   float volume = 0;
   void virtual CalculateVolume() = 0;
 
 public:
   Shape3D() { CalculateVolume(); }
 
-  void GetVolume() { return; };
+  float GetVolume() { return volume; };
+  void SetVolume(float v) {
+    if(v > 0){
+    volume = v;
+    }
+  }
   bool operator>(const Shape3D &other) { return volume > other.volume; };
   bool operator<(const Shape3D &other) { return volume < other.volume; };
   bool operator==(const Shape3D &other) { return volume == other.volume; };
@@ -51,7 +57,7 @@ private:
 public:
   Square(float side) : side(side) {}
 
-  void CalculateArea() override { area = side * side; }
+  void CalculateArea() override { SetArea(side * side); }
 };
 
 class Triangle : public Shape2D {
@@ -62,22 +68,22 @@ private:
 public:
   Triangle(float base, float height) : base(base), height(height) {}
 
-  void CalculateArea() override { area = 0.5 * base * height; }
+  void CalculateArea() override { SetArea(0.5 * base * height); }
 };
 
 class TriangularPyramid : public Shape3D {
 private:
- Triangle baseTriangle;
- float height;
+  Triangle baseTriangle;
+  float height;
 
 public:
- TriangularPyramid(float base, float height)
+  TriangularPyramid(float base, float height)
       : baseTriangle(base, height), height(height) {}
 
- void CalculateVolume() override {
-    baseTriangle.CalculateArea(); 
-    volume = (1.0f / 3.0f) * baseTriangle.GetArea() * height;
- }
+  void CalculateVolume() override {
+    baseTriangle.CalculateArea();
+    SetVolume((1.0f / 3.0f) * baseTriangle.GetArea() * height);
+  }
 };
 
 class Circle : public Shape2D {
@@ -87,7 +93,7 @@ private:
 public:
   Circle(float radius) : radius(radius) {}
 
-  void CalculateArea() override { area = 3.14159f * pow(radius, 2); }
+  void CalculateArea() override { SetArea(3.14159f * pow(radius, 2)); }
 };
 
 class Cylinder : public Shape3D {
@@ -100,7 +106,7 @@ public:
 
   void CalculateVolume() override {
     baseCircle.CalculateArea();
-    volume = baseCircle.GetArea() * height;
+    SetVolume(baseCircle.GetArea() * height);
   }
 };
 
@@ -113,7 +119,7 @@ public:
 
   void CalculateVolume() override {
 
-    volume = (4 * 3.14159f * pow(radius, 3)) / 3;
+    SetVolume((4 * 3.14159f * pow(radius, 3)) / 3);
   }
 };
 
