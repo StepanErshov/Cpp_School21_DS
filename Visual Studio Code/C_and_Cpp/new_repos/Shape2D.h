@@ -1,4 +1,6 @@
-#include <Shape.h>
+#ifndef SHAPE2D_H
+#define SHAPE2D_H
+#include "Shape.h"
 
 class Shape2D : public Shape {
 private:
@@ -6,7 +8,7 @@ private:
   void virtual CalculateArea() = 0;
 
 public:
-  Shape2D() { CalculateArea(); }
+  Shape2D() {}
 
   float GetArea() { return area; };
   void SetArea(float a) {
@@ -20,3 +22,5 @@ public:
   bool operator<(const Shape2D &other) { return area < other.area; };
   bool operator==(const Shape2D &other) { return area == other.area; };
 };
+
+#endif 

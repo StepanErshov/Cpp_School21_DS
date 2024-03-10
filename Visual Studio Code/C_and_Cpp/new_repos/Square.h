@@ -1,11 +1,14 @@
-#include <Shape2D.h>
+#ifndef SQUARE_H
+#define SQUARE_H
+
+#include "Shape2D.h"
 
 class Square : public Shape2D {
 private:
   float side;
 
 public:
-  Square(float side) : side(side) {}
+  Square(float side) : side(side) { CalculateArea(); } 
 
   void CalculateArea() override { SetArea(side * side); }
 
@@ -21,3 +24,5 @@ public:
 
   std::string GetName() override { return "Square"; }
 };
+
+#endif

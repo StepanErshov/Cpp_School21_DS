@@ -1,10 +1,10 @@
 #include <iostream>
-#include <Square.h>
-#include <Triangle.h>
-#include <TrianglePyramid.h>
-#include <Circle.h>
-#include <Cylinder.h>
-#include <Sphere.h>
+#include "Square.h"
+#include "Triangle.h"
+#include "TrianglePyramid.h"
+#include "Circle.h"
+#include "Cylinder.h"
+#include "Sphere.h"
 
 void TestSquare(){
     Square square(5);

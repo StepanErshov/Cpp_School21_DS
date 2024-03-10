@@ -1,5 +1,8 @@
-#include <Shape3D.h>
-#include <Triangle.h>
+#ifndef TRIANGLEPYRAMID_H
+#define TRIANGLEPYRAMID_H
+
+#include "Shape3D.h"
+#include "Triangle.h"
 
 class TriangularPyramid : public Shape3D {
 private:
@@ -8,7 +11,9 @@ private:
 
 public:
   TriangularPyramid(float base, float height)
-      : baseTriangle(base, height), height(height) {}
+      : baseTriangle(base, height), height(height) {
+        CalculateVolume();
+      }
 
   void CalculateVolume() override {
     baseTriangle.CalculateArea();
@@ -29,3 +34,5 @@ public:
 
   std::string GetName() override { return "Triangular Pyramid"; }
 };
+
+#endif

@@ -1,4 +1,6 @@
-#include <Shape2D.h>
+#ifndef TRIANGLE_H
+#define TRIANGLE_H
+#include "Shape2D.h"
 
 class Triangle : public Shape2D {
 private:
@@ -23,3 +25,5 @@ public:
 
   std::string GetName() override { return "Triangle"; }
 };
+
+#endif

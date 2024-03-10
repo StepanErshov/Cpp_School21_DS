@@ -1,5 +1,7 @@
-#include <Shape3D.h>
-#include <Circle.h>
+#ifndef CYLINDER_H
+#define CYLINDER_H
+#include "Shape3D.h"
+#include "Circle.h"
 
 class Cylinder : public Shape3D {
 private:
@@ -28,3 +30,5 @@ public:
 
   std::string GetName() override { return "Cylinder"; }
 };
+
+#endif

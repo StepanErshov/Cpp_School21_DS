@@ -1,4 +1,6 @@
-#include <Shape2D.h>
+#ifndef CIRCLE_H
+#define CIRCLE_H
+#include "Shape2D.h"
 
 class Circle : public Shape2D {
 private:
@@ -21,3 +23,5 @@ public:
 
   std::string GetName() override { return "Circle"; }
 };
+
+#endif

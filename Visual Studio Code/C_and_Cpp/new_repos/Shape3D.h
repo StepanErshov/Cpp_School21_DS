@@ -1,4 +1,7 @@
-#include <Shape.h>
+#ifndef SHAPE3D_H
+#define SHAPE3D_H
+
+#include "Shape.h"
 
 class Shape3D : public Shape {
 private:
@@ -6,7 +9,7 @@ private:
   void virtual CalculateVolume() = 0;
 
 public:
-  Shape3D() { CalculateVolume(); }
+  Shape3D() { }
 
   float GetVolume() { return volume; };
   void SetVolume(float v) {
@@ -20,3 +23,5 @@ public:
   bool operator<(const Shape3D &other) { return volume < other.volume; };
   bool operator==(const Shape3D &other) { return volume == other.volume; };
 };
+
+#endif

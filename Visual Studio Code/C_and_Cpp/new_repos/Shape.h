@@ -1,5 +1,5 @@
-#ifndef EX1
-#define EX1
+#ifndef SHAPE_H
+#define SHAPE_H
 #include <cmath>
 #include <iostream>
 #include <string>

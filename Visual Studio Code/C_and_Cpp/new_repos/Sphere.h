@@ -1,4 +1,6 @@
-#include <Shape3D.h>
+#ifndef SPHERE_H
+#define SPHERE_H
+#include "Shape3D.h"
 
 class Sphere : public Shape3D {
 private:
@@ -23,3 +25,5 @@ public:
 
   std::string GetName() override { return "Sphere"; }
 };
+
+#endif
