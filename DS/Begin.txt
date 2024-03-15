@@ -1,1 +1,19 @@
 This file was created at the very beginning of my journey of becoming a great DS specialist
+
+Useful materials: 
+"Не лги себе" Сет Стивенс-Давидовиц
+"Data Science наука о данных с нуля" Джоэл Грас
+"Postgres ПЕРВОЕ ЗНАКОМСТВО" П. Лузанов, Е. Рогов, И. Лёвшин
+"Glubokoe_obuchenie_Pogruzhenie_v_mir_neyronnykh_setey_2018" Николаенко
+Khaykin_S_Neyronnye_seti_Polny_kurs_izd_2_2006_RU
+"Prikladnoe_glubokoe_obuchenie_2020" Umberto_Mikeluchchi
+"Python_Iskusstvenny_intellekt_bolshie_dannye_i_oblachnye_vychislenia"
+https://education.yandex.ru/handbook/ml
+https://practicum.yandex.ru/profile/data-scientist/?from=learn_subscriptions-with-prof-recommendations
+https://skillbox.ru/media/code/biblioteka-tensorflow-pishem-neyroset-i-izuchaem-printsipy-mashinnogo-obucheniya/
+https://python-school.ru/blog/osnovy-ml/randomforestclassifier/
+https://python.ivan-shamaev.ru/keras-tutorial-beginner-guide-to-deep-learning-in-python/
+https://timeweb.com/ru/community/articles/kak-nachat-rabotu-s-keras
+https://ocw.mit.edu/search/?q=machine%20learning
+https://www.edx.org/search?q=machine+learning
+https://www.codecademy.com/learn/learn-sql
