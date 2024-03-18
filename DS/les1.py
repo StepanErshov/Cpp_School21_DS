@@ -19,7 +19,7 @@ friendship_pairs = [(0, 1), (0, 2), (1, 2), (1, 3), (2, 3), (3, 4),
 friendship = {user["id"]: [] for user in users}
 
 #Перебрать все дружеские пары, заполняя их:
-for i, j in friendship:
+for i, j in friendship_pairs:
     friendship[i].append(j) #Добавить j как друга i
     friendship[j].append(i) #Добавить i как друга j
 
