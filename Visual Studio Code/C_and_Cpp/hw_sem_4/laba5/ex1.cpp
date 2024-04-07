@@ -26,8 +26,14 @@ struct Matrix {
 
 // Функции для работы с книгами
 void addBook(std::vector<Book>& books, const Book& newBook) {
+    std::string filename = "Book.txt";
     std::ofstream outBook;
-    outBook.open("Book.txt");
+    // Открываем файл в режиме добавления, чтобы не стирать существующие записи
+    outBook.open(filename, std::ios::app);
+    if (!outBook.is_open()) {
+        std::cerr << "Не удалось открыть файл " << filename << " для записи" << std::endl;
+        return;
+    }
     books.push_back(newBook);
     outBook << newBook << std::endl;
     outBook.close();
