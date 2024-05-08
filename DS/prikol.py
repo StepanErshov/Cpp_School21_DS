@@ -31,4 +31,3 @@ def number_of_friends(user):
 
 for user in users:
     print(f"{user['name']} имеет {number_of_friends(user)} друзей.")
-    

@@ -1,3 +1,5 @@
+from collections import Counter
+
 users = [
     {"id": 0, "name": "Hero"},
     {"id": 1, "name": "Dunn"},
@@ -16,18 +18,18 @@ friendship_pairs = [(0, 1), (0, 2), (1, 2), (1, 3), (2, 3), (3, 4),
 
 #Иницилизировать словарь пустым списком для индификатора
 #каждого пользователя
-friendship = {user["id"]: [] for user in users}
+friendships = {user["id"]: [] for user in users}
 
 #Перебрать все дружеские пары, заполняя их:
 for i, j in friendship_pairs:
-    friendship[i].append(j) #Добавить j как друга i
-    friendship[j].append(i) #Добавить i как друга j
+    friendships[i].append(j) #Добавить j как друга i
+    friendships[j].append(i) #Добавить i как друга j
 
 #Число друзей
 def number_of_friends(user):
     """Сколько друзей есть у пользователя"""
     user_id = user["id"]
-    friends_ids = friendship[user_id]
+    friends_ids = friendships[user_id]
     return len(friends_ids)
 
 total_connection = sum(number_of_friends(users) # Суммарное число
@@ -36,7 +38,7 @@ total_connection = sum(number_of_friends(users) # Суммарное число
 num_users = len(users)  #Длинна списка пользователей
 avg_connection = total_connection / num_users   # 24 / 10 = 2.4
 
-#Создать список в формате (id пользователя, число друзей)
+#Создать список в формате(id пользователя, число друзей)
 num_friends_by_id = [(user["id"], number_of_friends(user))
                      for user in users]
 
