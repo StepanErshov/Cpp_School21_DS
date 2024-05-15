@@ -28,12 +28,13 @@ int process_file(char *filename, unsigned int options) {
   unsigned int new_line_indicator = TRUE;
   unsigned int line_number = 1;
   unsigned int new_line_count = 0;
-  while ((character = fgetc(file))!= EOF) {
+  while ((character = fgetc(file)) != EOF) {
     if (!IS_NEW_LINE(character) && new_line_indicator == TRUE &&
         (IS_OPTION_LINE(options) || IS_OPTION_NONBLANK(options))) {
       printf("%6u\t", line_number++);
     }
-    if (IS_NEW_LINE(character) && new_line_indicator == TRUE && IS_OPTION_NONBLANK(options)) {
+    if (IS_NEW_LINE(character) && new_line_indicator == TRUE &&
+        IS_OPTION_NONBLANK(options)) {
       printf("%6u\t", line_number++);
       new_line_indicator = FALSE;
     }
@@ -41,8 +42,10 @@ int process_file(char *filename, unsigned int options) {
         (IS_TAB_CHAR(character) && IS_OPTION_TAB(options))) {
       new_line_indicator = FALSE;
       new_line_count = 0;
-      if (character > 127) printf("^%c", character >= 32? character - '@' : character + '@');
-      else printf("^%c", character >= 32? character - '@' : character + '@');
+      if (character > 127)
+        printf("^%c", character >= 32 ? character - '@' : character + '@');
+      else
+        printf("^%c", character >= 32 ? character - '@' : character + '@');
     } else if (IS_NEW_LINE(character)) {
       if (new_line_count < 2) {
         new_line_indicator = TRUE;
@@ -72,7 +75,8 @@ int parse_options(int argc, char **args, unsigned int *options) {
                                   {0, 0, 0, 0}};
   while (getopt_result > -1 && status == OK) {
     int option_index = 0;
-    getopt_result = getopt_long(argc, args, "+beEnstTv", long_options, &option_index);
+    getopt_result =
+        getopt_long(argc, args, "+beEnstTv", long_options, &option_index);
     status = process_option(options, getopt_result);
   }
   return status;

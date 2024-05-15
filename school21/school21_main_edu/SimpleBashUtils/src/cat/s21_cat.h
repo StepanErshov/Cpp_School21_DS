@@ -21,7 +21,9 @@
 #define TRUE 1
 #define FALSE 0
 
-#define IS_SPECIAL_CHAR(ch) (((ch) >= 0 && (ch) <= 8) || ((ch) >= 11 && (ch) <= 31) || ((ch) >= 127 && (ch) <= 159))
+#define IS_SPECIAL_CHAR(ch)                                  \
+  (((ch) >= 0 && (ch) <= 8) || ((ch) >= 11 && (ch) <= 31) || \
+   ((ch) >= 127 && (ch) <= 159))
 #define IS_TAB_CHAR(ch) (((ch) == '\t'))
 #define IS_NEW_LINE(ch) (((ch) == '\n'))
 
