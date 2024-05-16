@@ -16,24 +16,12 @@ protected:
 public:
   Character(int x, int y) : position(x, y) {}
 
-  virtual void move() = 0;
+  virtual void move(char key) = 0;
 
   Point2D getPosition() const { return position; }
 };
 
-class Prey : public Character {
-public:
-  Prey(int x, int y) : Character(x, y) {}
-
-  void move() override;
-};
-
-class Predator : public Character {
-public:
-  Predator(int x, int y) : Character(x, y) {}
-
-  void move() override;
-};
+enum class PlayerType { PREY, PREDATOR };
 
 class Arena {
 private:
@@ -43,12 +31,15 @@ private:
 
   Point2D preyPosition;
   Point2D predatorPosition;
-
-  static Arena *instance;
-
-  Arena() : preyPosition(WIDTH / 2, HEIGHT / 2), predatorPosition(0, 0) {}
+  PlayerType playerType;
 
 public:
+  static Arena *instance;
+
+  Arena()
+      : preyPosition(WIDTH / 2, HEIGHT / 2), predatorPosition(0, 0),
+        playerType(PlayerType::PREY) {}
+
   static Arena &getInstance() {
     if (!instance) {
       instance = new Arena();
@@ -62,85 +53,106 @@ public:
   static int getWidth() { return WIDTH; }
   static int getHeight() { return HEIGHT; }
 
+  void setPlayerType(PlayerType type) { playerType = type; }
+
   void startGame();
 };
 
+class Prey : public Character {
+public:
+  Prey(int x, int y) : Character(x, y) {}
+
+  void move(char key) override {
+    switch (key) {
+    case 'w':
+      position.y -= 1;
+      break;
+    case 's':
+      position.y += 1;
+      break;
+    case 'a':
+      position.x -= 1;
+      break;
+    case 'd':
+      position.x += 1;
+      break;
+    case 'q':
+      position.x -= 1;
+      position.y -= 1;
+      break;
+    case 'e':
+      position.x += 1;
+      position.y -= 1;
+      break;
+    case 'z':
+      position.x -= 1;
+      position.y += 1;
+      break;
+    case 'c':
+      position.x += 1;
+      position.y += 1;
+      break;
+    }
+
+    if (position.x < 0)
+      position.x = Arena::getWidth() - 1;
+    if (position.y < 0)
+      position.y = Arena::getHeight() - 1;
+    if (position.x >= Arena::getWidth())
+      position.x = 0;
+    if (position.y >= Arena::getHeight())
+      position.y = 0;
+  }
+};
+
+class Predator : public Character {
+public:
+  Predator(int x, int y) : Character(x, y) {}
+
+  void move(char key) override {
+    switch (key) {
+    case 'w':
+      position.y -= 1 + (rand() % 3);
+      break;
+    case 's':
+      position.y += 1 + (rand() % 3);
+      break;
+    case 'a':
+      position.x -= 1 + (rand() % 3);
+      break;
+    case 'd':
+      position.x += 1 + (rand() % 3);
+      break;
+    case 'q':
+      position.x -= 1;
+      position.y -= 1;
+      break;
+    case 'e':
+      position.x += 1;
+      position.y -= 1;
+      break;
+    case 'z':
+      position.x -= 1;
+      position.y += 1;
+      break;
+    case 'c':
+      position.x += 1;
+      position.y += 1;
+      break;
+    }
+
+    if (position.x < 0)
+      position.x = 0;
+    if (position.y < 0)
+      position.y = 0;
+    if (position.x >= Arena::getWidth())
+      position.x = Arena::getWidth() - 1;
+    if (position.y >= Arena::getHeight())
+      position.y = Arena::getHeight() - 1;
+  }
+};
+
 Arena *Arena::instance = nullptr;
-
-void Prey::move() {
-  int dx = 0, dy = 0;
-  char key = _getch();
-  switch (key) {
-  case 'w':
-    dy = -1;
-    break;
-  case 's':
-    dy = 1;
-    break;
-  case 'a':
-    dx = -1;
-    break;
-  case 'd':
-    dx = 1;
-    break;
-  case 'q':
-    dx = -1;
-    dy = -1;
-    break;
-  case 'e':
-    dx = 1;
-    dy = -1;
-    break;
-  case 'z':
-    dx = -1;
-    dy = 1;
-    break;
-  case 'c':
-    dx = 1;
-    dy = 1;
-    break;
-  }
-  position.x += dx;
-  position.y += dy;
-
-  if (position.x < 0)
-    position.x = 0;
-  if (position.y < 0)
-    position.y = 0;
-  if (position.x >= Arena::getWidth())
-    position.x = Arena::getWidth() - 1;
-  if (position.y >= Arena::getHeight())
-    position.y = Arena::getHeight() - 1;
-}
-
-void Predator::move() {
-  int predX = position.x;
-  int predY = position.y;
-  Point2D preyPos = Arena::getInstance().getPreyPosition();
-  int preyX = preyPos.x;
-  int preyY = preyPos.y;
-
-  int dx = abs(predX - preyX);
-  int dy = abs(predY - preyY);
-  int distance = rand() % 3 + 1;
-
-  if (dx > dy) {
-    int moveDirection = (predX < preyX) ? 1 : -1;
-    position.x += moveDirection * distance;
-  } else {
-    int moveDirection = (predY < preyY) ? 1 : -1;
-    position.y += moveDirection * distance;
-  }
-
-  if (position.x < 0)
-    position.x = 0;
-  if (position.y < 0)
-    position.y = 0;
-  if (position.x >= Arena::getWidth())
-    position.x = Arena::getWidth() - 1;
-  if (position.y >= Arena::getHeight())
-    position.y = Arena::getHeight() - 1;
-}
 
 void Arena::startGame() {
   srand(time(nullptr));
@@ -162,14 +174,25 @@ void Arena::startGame() {
 
     Prey prey(preyPosition.x, preyPosition.y);
     Predator predator(predatorPosition.x, predatorPosition.y);
-    prey.move();
-    predator.move();
+
+    int dx = abs(predatorPosition.x - preyPosition.x);
+    int dy = abs(predatorPosition.y - preyPosition.y);
+    int distance = rand() % 3 + 1;
+
+    if (playerType == PlayerType::PREY) {
+      prey.move(_getch());
+      predator.move(_getch());
+    } else if (playerType == PlayerType::PREDATOR) {
+      predator.move(_getch());
+      prey.move(_getch());
+    }
+
     preyPosition = prey.getPosition();
     predatorPosition = predator.getPosition();
 
     if (abs(preyPosition.x - predatorPosition.x) <= 1 &&
         abs(preyPosition.y - predatorPosition.y) <= 1) {
-      std::cout << "Game over! You got caught!" << std::endl;
+      std::cout << "Game over You got caught!" << std::endl;
       break;
     }
 
@@ -178,10 +201,21 @@ void Arena::startGame() {
   }
 
   if (movesLeft == 0)
-    std::cout << "Game over! The moves are over." << std::endl;
+    std::cout << "Game over The moves are over." << std::endl;
 }
 
 int main() {
+  PlayerType choose;
+  int ch;
+  std::cout << "Choose hero:" << std::endl;
+  std::cout << "1. Predator" << std::endl;
+  std::cout << "2. Prey" << std::endl;
+  std::cin >> ch;
+  if (ch == 1)
+    choose = PlayerType::PREDATOR;
+  else
+    choose = PlayerType::PREY;
+  Arena::getInstance().setPlayerType(choose);
   Arena::getInstance().startGame();
   return 0;
 }
