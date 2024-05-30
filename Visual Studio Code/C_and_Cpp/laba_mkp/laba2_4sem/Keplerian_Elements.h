@@ -29,7 +29,7 @@
 #define AtmDensity 1.82838 * pow(10.0, -10.0)
 
 #define Re 6378.1
-#define Wz 7.2921159 * pow(10, -5.0)
+#define Wz 7.2921159 * pow(10.0, -5.0)
 
 void undisturbance();
 void disturbance(std::vector<double> THETA, int rounds);
