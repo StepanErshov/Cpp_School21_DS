@@ -1,0 +1,1 @@
+-1.20267e-05 -7.65331e+25 7.55625e+68 -1.24413e+114 -3.28157e+153 1.02758e+192 -1.65973e+204 -1.55168e+265 -5.94708e+306 inf nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan 
