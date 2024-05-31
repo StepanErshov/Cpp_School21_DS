@@ -6,7 +6,7 @@ void undisturbance() {
   std::ofstream file;
 
   file.open("C:/projects/Visual Studio "
-            "Code/C_and_Cpp/laba_mkp/laba2_4sem/files/Disturbance.txt");
+            "Code/C_and_Cpp/laba_mkp/laba2_4sem/files/THETA.txt");
 
   for (int i = 0; i < 5; i++) {
     file << param[i] << " ";
