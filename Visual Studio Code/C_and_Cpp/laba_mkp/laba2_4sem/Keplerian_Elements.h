@@ -11,14 +11,14 @@
 
 //Initial data
 #define PI 3.1415926
-#define I (56.7 * PI / 180.0) //Inclanation
-#define Ha 300.0 //Apogee height
-#define Hp 300.0 //Perigee height
+#define I (58.0 * PI / 180.0) //Inclanation
+#define Ha 675.0 //Apogee height
+#define Hp 675.0 //Perigee height
 #define OMEGA (40.0 * PI / 180.0) //The longitude of the ascending node
-#define U (30.0 * PI / 180.0) //Latitude argument
-#define Sa 20.0 //Area of Space Aircaft(SA)
-#define m 2500.0 //SA's mass
-#define Cxa 2.0 //Coefficient of frontal force resistance
+#define U (70.0 * PI / 180.0) //Latitude argument
+#define Sa 23.0 //Area of Space Aircaft(SA)
+#define m 2600.0 //SA's mass
+#define Cxa 3.5 //Coefficient of frontal force resistance
 
 //Orbital parameters(not found yet)
 #define Ra R + Ha //Apogee radius

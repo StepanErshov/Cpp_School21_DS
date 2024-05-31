@@ -76,7 +76,7 @@ void disturbance(std::vector<double> THETA, int rounds) {
     tempW = -(param / pow(tempR, 4.0)) * sin(2.0 * tempI) * sin(tempTHETA);
 
     double gamma = 1.0 - ((tempW * pow(tempR, 3.0)) / ((mu * tempP)) *
-                          sin(tempTHETA) * (cos(tempI) / sin(tempI)));
+                             sin(tempTHETA) * (cos(tempI) / sin(tempI)));
 
     double uChange = ((sqrt(mu * tempP) / pow(tempR, 2.0))) * gamma;
 
@@ -87,12 +87,11 @@ void disturbance(std::vector<double> THETA, int rounds) {
                       tempT * ((1.0 + (tempR / tempP)) * cos(tempTHETA) +
                                tempE * (tempR / tempP)));
 
-    double omChange =
-        (pow(tempR, 2.0) / (gamma * mu * tempE)) *
-        (-tempS * cos(tempTHETA) +
-         (tempT * (1.0 + (tempR / tempP) * sin(tempTHETA) -
-                   (tempW * (tempR / tempP) * tempE *
-                    (cos(tempI) / sin(tempI)) * sin(tempTHETA)))));
+    double omChange = (pow(tempR, 2.0) / (gamma * mu * tempE)) *
+                      (-tempS * cos(tempTHETA) +
+                       (tempT * (1.0 + (tempR / tempP) * sin(tempTHETA) -
+                                (tempW * (tempR / tempP) * tempE *
+                                 (cos(tempI) / sin(tempI)) * sin(tempTHETA)))));
 
     double iChange =
         (pow(tempR, 3.0) / (gamma * mu * tempP)) * (tempW * cos(tempTHETA));
