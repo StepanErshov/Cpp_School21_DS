@@ -21,8 +21,8 @@
 #define Cxa 3.5 //Coefficient of frontal force resistance
 
 //Orbital parameters(not found yet)
-#define Ra R + Ha //Apogee radius
-#define Rp R + Hp //Perigee radius
+#define Ra (R + Ha) //Apogee radius
+#define Rp (R + Hp) //Perigee radius
 #define a (Rp + Ra) / 2.0 //Semi-major axis
 #define e (Ra - Rp) / (Ra + Rp) //Eccentricity
 #define P a * (1.0 - pow(e, 2.0)) //Focal parameter
