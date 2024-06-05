@@ -229,7 +229,7 @@ public:
       position.y += 1;
       break;
     default:
-      std::cout << "Wrong button" << std::endl;
+      std::cout << "Invalid input" << std::endl;
     }
     if (position.x < 0)
       position.x = 0;
