@@ -210,7 +210,7 @@ int countWordOccurrences(const std::string& filename, const std::string& word) {
 
 int main() {
     std::vector<Book> books;
-    std::string filename = "books.txt";
+    std::string filename = "Book.txt";
     std::ifstream file(filename);
     if (file.is_open()) {
         std::string id, author, title;
