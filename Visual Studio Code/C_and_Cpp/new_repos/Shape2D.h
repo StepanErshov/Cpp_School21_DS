@@ -9,8 +9,7 @@ private:
 
 public:
   Shape2D() {}
-
-  float GetArea() { return area; };
+  
   void SetArea(float a) {
     if (a > 0) {
       area = a;
@@ -18,6 +17,9 @@ public:
       throw std::runtime_error("ERROR 300");
     }
   }
+  
+  float GetArea() { return area; };
+
   bool operator>(const Shape2D &other) { return area > other.area; };
   bool operator<(const Shape2D &other) { return area < other.area; };
   bool operator==(const Shape2D &other) { return area == other.area; };
