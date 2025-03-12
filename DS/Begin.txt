@@ -8,6 +8,7 @@ Useful materials:
 Khaykin_S_Neyronnye_seti_Polny_kurs_izd_2_2006_RU
 "Prikladnoe_glubokoe_obuchenie_2020" Umberto_Mikeluchchi
 "Python_Iskusstvenny_intellekt_bolshie_dannye_i_oblachnye_vychislenia"
+
 https://education.yandex.ru/handbook/ml
 https://practicum.yandex.ru/profile/data-scientist/?from=learn_subscriptions-with-prof-recommendations
 https://skillbox.ru/media/code/biblioteka-tensorflow-pishem-neyroset-i-izuchaem-printsipy-mashinnogo-obucheniya/

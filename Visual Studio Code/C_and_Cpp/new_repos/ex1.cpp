@@ -8,6 +8,7 @@
 
 void TestSquare(){
     Square square(5);
+    square.Scale(1);
     square.ShowInfo();
     square.Scale(2);
     square.ShowInfo();
@@ -15,6 +16,7 @@ void TestSquare(){
 
 void TestTriangle(){
     Triangle triangle(5, 10);
+    triangle.Scale(1);
     triangle.ShowInfo();
     triangle.Scale(2);
     triangle.ShowInfo();
@@ -22,6 +24,7 @@ void TestTriangle(){
 
 void TestTrianglePyramid(){
     TriangularPyramid pyramid(5, 10);
+    pyramid.Scale(1);
     pyramid.ShowInfo();
     pyramid.Scale(2);
     pyramid.ShowInfo();
@@ -29,6 +32,7 @@ void TestTrianglePyramid(){
 
 void TestCircle(){
     Circle circle(5);
+    circle.Scale(1);
     circle.ShowInfo();
     circle.Scale(2);
     circle.ShowInfo();
@@ -36,6 +40,7 @@ void TestCircle(){
 
 void TestCylinder(){
     Cylinder cylinder(5, 10);
+    cylinder.Scale(1);
     cylinder.ShowInfo();
     cylinder.Scale(2);
     cylinder.ShowInfo();
@@ -43,6 +48,7 @@ void TestCylinder(){
 }
 void TestSphere(){
     Sphere sphere(5);
+    sphere.Scale(1);
     sphere.ShowInfo();
     sphere.Scale(2);
     sphere.ShowInfo();

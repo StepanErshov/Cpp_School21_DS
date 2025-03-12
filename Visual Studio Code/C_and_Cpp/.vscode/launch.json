@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/projects/shool21",
-      "program": "c:/projects/shool21/build/Debug/outDebug",
+      "cwd": "c:/projects/Visual Studio Code/C_and_Cpp/laba_mkp/laba2_4sem",
+      "program": "c:/projects/Visual Studio Code/C_and_Cpp/laba_mkp/laba2_4sem/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [

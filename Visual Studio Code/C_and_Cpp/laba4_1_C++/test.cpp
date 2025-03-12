@@ -1,7 +1,7 @@
 #include <iostream>
 #include "Matrix.h"
 #include "Vector.h"
-#include "second_max_index.h" // Добавлено
+#include "second_max_index.h"
 
 int main() {
     // Создание и заполнение матрицы
